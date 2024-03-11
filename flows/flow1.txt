@@ -1,0 +1,14 @@
+help
+
+farm add TLV
+
+host add tlv-integ1 WINDOWS
+host add tlv-integ2 WINDOWS
+host add tlv-integ3 WINDOWS
+host register tlv-integ1 TLV
+host register tlv-integ2 TLV
+host register tlv-integ3 TLV
+host show tlv-integ1
+farm show TLV
+farm show_all
+save

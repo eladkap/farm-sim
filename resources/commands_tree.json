@@ -1,0 +1,10 @@
+{
+  "help": [],
+  "exit": [],
+  "host": {
+    "add": "HOST",
+    "show": "HOST",
+    "remove": "HOST",
+    "list": []
+  }
+}

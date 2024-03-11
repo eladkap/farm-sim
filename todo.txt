@@ -1,0 +1,36 @@
+Server farm simulator
+---------------------
+
+Manage server hosts
+
+Manage farms
+
+Control hosts using command-line API
+
+Monitor dashboards
+- Problematic hosts by category (unreachable, high CPU, high memory)
+
+
+
+
+
+host:
+hosts list
+host create HOSTNAME OS [Linux/Windows]
+host display HOSTNAME
+host remove HOSTNAME
+
+
+
+Host API
+- hostname
+- ls
+- pwd
+
+Monitoring (Python GUI - Tkinter)
+- Configure and monitor hosts
+- Manage dashboards
+- Manage host problems
+
+
+
