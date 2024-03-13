@@ -27,9 +27,20 @@ class Farm(object):
         self.__hosts.pop(hostname)
         return True
 
+    def get_host(self, hostname: str):
+
+        return self.__hosts.get(hostname)
+
     def show_hosts(self):
         for host in self.__hosts:
             print(host)
 
     def has_host(self, hostname):
         return hostname in self.__hosts.keys()
+
+    def to_dict(self) -> dict:
+        d = {
+            "name": self.__name,
+            "hosts": [self.__hosts[hostname].to_dict() for hostname in self.__hosts.keys()]
+        }
+        return d

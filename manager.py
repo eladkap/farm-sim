@@ -11,17 +11,18 @@ class Manager(object):
     def get_farms(self):
         return self.__farms
 
-    def create_farm(self, name: str) -> bool:
-        if name in self.__farms.keys():
-            print(f'Farm "{name}" already exists')
+    def create_farm(self, farm_name: str) -> bool:
+        if farm_name in self.__farms.keys():
+            print(f'Farm "{farm_name}" already exists.')
             return False
-        farm = Farm(name)
-        self.__farms[name] = farm
+        farm = Farm(farm_name)
+        self.__farms[farm_name] = farm
+        print(f'Farm "{farm_name}" was created.')
         return True
 
-    def add_host_to_farm(self, farm_name, hostname: str, op_sys: str) -> bool:
+    def add_host_to_farm(self, farm_name: str, hostname: str, op_sys: str) -> bool:
         if farm_name not in self.__farms.keys():
-            print(f'No such farm "{farm_name}"')
+            print(f'No such farm "{farm_name}".')
             return False
 
         os_options = [e.name for e in OperatingSystem]
@@ -33,10 +34,25 @@ class Manager(object):
 
         host = Host(hostname, op_sys)
         if farm.add_host(host):
-            print(f'Host {hostname} was added to farm {farm_name}')
+            print(f'Host "{hostname}" was added to farm "{farm_name}".')
             return True
         else:
-            print(f'Host {hostname} already exists in farm {farm_name}')
+            print(f'host "{hostname}" already exists.')
+            return False
+
+    def remove_host_from_farm(self, farm_name: str, hostname: str) -> bool:
+        if farm_name not in self.__farms.keys():
+            print(f'No such farm "{farm_name}"')
+            return False
+
+        farm = self.__farms[farm_name]
+
+        if farm.has_host(hostname):
+            farm.remove_host(hostname)
+            print(f'Host "{hostname}" was removed from farm "{farm_name}".')
+            return True
+        else:
+            print(f'Host "{hostname}" does not exist in farm "{farm_name}".')
             return False
 
     def show_farm(self, farm_name):
@@ -59,5 +75,17 @@ class Manager(object):
         for farm_name in self.__farms.keys():
             farm = self.__farms[farm_name]
             if farm.has_host(hostname):
-                host = farm[hostname]
+                host = farm.get_host(hostname)
                 print(host)
+
+    def to_dict(self) -> dict:
+        farm_jsons = []
+        for farm_name in self.__farms:
+            farm = self.__farms[farm_name]
+            farm_jsons.append(farm.to_dict())
+
+        d = {
+            "farms": farm_jsons
+        }
+
+        return d

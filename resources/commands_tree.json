@@ -1,17 +1,28 @@
 {
   "help": [],
   "exit": [],
+  "save": [],
   "farm": {
-    "create": "FARM",
-    "show": "FARM"
+    "create": {
+      "FARM": []
+    },
+    "show": {
+      "FARM": []
+    }
   },
   "host": {
-    "create": [
-      "FARM",
-      "HOST"
-    ],
-    "show": "HOST",
-    "remove": "HOST",
-    "list": []
+    "create": {
+      "FARM": {
+        "HOSTNAME": []
+      }
+    },
+    "show": {
+      "HOSTNAME": []
+    },
+    "remove": {
+      "FARM": {
+        "HOSTNAME": []
+      }
+    }
   }
 }

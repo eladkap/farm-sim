@@ -14,7 +14,7 @@ class Host(object):
     def __init__(self, hostname: str, op_sys: str):
         self.__hostname = hostname
         self.__op_sys = op_sys
-        self.__status = Status.UP
+        self.__status = Status.UP.name
         self.__cpu_usage = 0
         self.__memory_usage = 0
         self.__fs = {}
@@ -23,7 +23,7 @@ class Host(object):
         d = {
             'hostname': self.__hostname,
             'OS': self.__op_sys,
-            'Status': self.__status
+            'status': self.__status
         }
         return d
 

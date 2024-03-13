@@ -1,14 +1,14 @@
 help
-
-farm add TLV
-
-host add tlv-integ1 WINDOWS
-host add tlv-integ2 WINDOWS
-host add tlv-integ3 WINDOWS
-host register tlv-integ1 TLV
-host register tlv-integ2 TLV
-host register tlv-integ3 TLV
+farm create TLV
+farm show TLV
+host create TLV tlv-integ1 Windows
+host create TLV tlv-integ2 Windows
+host create TLV tlv-integ3 Windows
 host show tlv-integ1
 farm show TLV
-farm show_all
-save
+farm create BOS
+host create BOS bos-test1 Windows
+host create BOS bos-test2 Windows
+host create BOS bos-test3 Windows
+farm show BOS
+save farms.json
