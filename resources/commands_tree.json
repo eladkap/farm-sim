@@ -1,8 +1,15 @@
 {
   "help": [],
   "exit": [],
+  "farm": {
+    "create": "FARM",
+    "show": "FARM"
+  },
   "host": {
-    "add": "HOST",
+    "create": [
+      "FARM",
+      "HOST"
+    ],
     "show": "HOST",
     "remove": "HOST",
     "list": []

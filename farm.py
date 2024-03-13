@@ -30,3 +30,6 @@ class Farm(object):
     def show_hosts(self):
         for host in self.__hosts:
             print(host)
+
+    def has_host(self, hostname):
+        return hostname in self.__hosts.keys()

@@ -1,3 +1,6 @@
+import time
+import random
+
 from status import Status
 
 """
@@ -50,3 +53,26 @@ class Host(object):
 
     def set_memory_usage(self, memory_usage: int):
         self.__memory_usage = memory_usage
+
+    def run(self):
+        timestamp = 0
+        while True:
+            time.sleep(3)
+
+            # Set random status
+            if timestamp % 20 == 0:
+                x = random.randint(0, 100)
+                status = Status.UP.name if x > 5 else Status.DOWN.name
+                self.set_status(status)
+
+            # Set random CPU usage
+            if timestamp % 5 == 0:
+                cpu = random.randint(0, 100)
+                self.set_cpu_usage(cpu)
+
+            # Set random memory usage
+            if timestamp % 4 == 0:
+                memory = random.randint(0, 100)
+                self.set_memory_usage(memory)
+
+            timestamp += 1

@@ -1,10 +1,10 @@
 COMMAND,SYNOPSIS
 help,Show commands
 exit,Exit terminal
-farm add <FARM_NAME>
-farm show <FARM_NAME>
-host add <FARM_NAME> <HOSTNAME> <OS>,Add new host
-host show <HOSTNAME>,Show host attributes
+farm create <FARM_NAME>,Create new farm
+farm show <FARM_NAME>,Show farm properties
+host create <FARM_NAME> <HOSTNAME> <OS>,Create new host
+host show <HOSTNAME>,Show host properties
 host remove <FARM_NAME> <HOSTNAME>,Remove host from farm
 save,save current farms and hosts to json file
 host enter <HOSTNAME>,Enter to host terminal
